@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shrina Khare | Portfolio</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Malgun+Gothic:wght@300;400;600;700&display=swap');
+
 /* BASE STYLES */
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Book Antiqua', serif;
+  font-family: 'Malgun Gothic Semilight', sans-serif;
   background-color: #000;
   color: #fff;
   line-height: 1.8;
@@ -34,16 +36,8 @@ p { max-width: 900px; margin: 0 auto 15px; transition: all 0.3s ease; }
 p:hover { color: #ccc; cursor: default; }
 
 /* FADE-IN / OUT */
-.fade-in { 
-  opacity: 0; 
-  transform: translateY(50px); 
-  transition: all 0.8s ease-out; 
-}
-.fade-in.visible { 
-  opacity: 1; 
-  transform: translateY(0); 
-  transition-delay: var(--delay);
-}
+.fade-in { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
 
 /* CARDS */
 .card-container { display: flex; flex-direction: column; gap: 30px; align-items: center; position: relative; z-index:1; }
@@ -60,7 +54,7 @@ p:hover { color: #ccc; cursor: default; }
 .card:hover { transform: translateY(-5px); background-color: #1a1a1a; }
 .card h3 { margin-bottom: 15px; font-size: 2rem; }
 .card p { margin-bottom: 0; font-size: 1.1rem; }
-.details { text-align: left; margin-top: 15px; }
+.details { text-align: left; margin-top: 15px; display: none; }
 .details > .sub-card { background: #222; margin: 10px 0; padding: 12px 15px; cursor: pointer; border-left: 2px solid #fff; transition: background 0.2s ease; }
 .details > .sub-card:hover { background: #333; }
 .details > .sub-card p, .details > .sub-card ul { display: none; margin-top: 10px; }
@@ -250,6 +244,7 @@ p:hover { color: #ccc; cursor: default; }
       <div class="details">
         <div class="sub-card"><p><strong>Story:</strong> Growing up in a multilingual environment and learning new languages has been like opening doors to different worlds. Each language carries culture, nuance, and perspective. Learning and using them has been an exercise in empathy, adaptability, and connection—allowing me to engage with people and ideas beyond my immediate surroundings.</p></div>
         <div class="sub-card"><ul><li>English, Hindi, Marathi – Native</li><li>French – A1, aiming B2/C1</li></ul></div>
+        <div class="sub-card"><ul><li>Multilingual Communication</li><li>Cultural Awareness</li><li>Adaptability</li></ul></div>
       </div>
     </div>
 
@@ -258,41 +253,56 @@ p:hover { color: #ccc; cursor: default; }
 
 <!-- CONTACT -->
 <section id="contact" class="fade-in">
-  <h2>Contact</h2>
+  <h2>Contact Me</h2>
   <div class="contact">
-    <p>Email: shrinak@portfolio.com</p>
+    <p>Email: shrina.khare.career@gmail.com</p>
     <p>Phone: +44 7747 213034</p>
+    <p>Location: York, United Kingdom</p>
   </div>
 </section>
 
 <script>
-// Fade in/out cascading sections and cards
-const sections = document.querySelectorAll('.fade-in');
-
-const sectionObserver = new IntersectionObserver((entries) => {
+// FADE-IN / OUT CASCADING
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.2 };
+const appearOnScroll = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    const cards = entry.target.querySelectorAll('.card');
     if(entry.isIntersecting){
       entry.target.classList.add('visible');
-      cards.forEach((card, index) => {
-        setTimeout(() => card.classList.add('visible'), index * 150);
-      });
     } else {
       entry.target.classList.remove('visible');
-      cards.forEach(card => card.classList.remove('visible'));
     }
   });
-}, { threshold: 0.2 });
+}, appearOptions);
 
-sections.forEach(section => sectionObserver.observe(section));
+faders.forEach(fader => appearOnScroll.observe(fader));
 
-// Toggle sub-card details
-document.querySelectorAll('.sub-card').forEach(subCard => {
-  subCard.addEventListener('click', () => {
-    subCard.classList.toggle('active');
+// SUBCARDS TOGGLE
+const cards = document.querySelectorAll('.card');
+cards.forEach(card => {
+  card.addEventListener('click', e => {
+    // prevent nested clicks from bubbling
+    if(e.target.closest('.sub-card')) return;
+    const details = card.querySelector('.details');
+    if(details){
+      details.style.display = (details.style.display === 'block') ? 'none' : 'block';
+    }
+  });
+});
+
+// SUB-SUBCARDS TOGGLE
+const subCards = document.querySelectorAll('.sub-card');
+subCards.forEach(sub => {
+  sub.addEventListener('click', e => {
+    const p = sub.querySelector('p');
+    const ul = sub.querySelector('ul');
+    if(p) p.style.display = (p.style.display === 'block') ? 'none' : 'block';
+    if(ul) ul.style.display = (ul.style.display === 'block') ? 'none' : 'block';
+    e.stopPropagation();
   });
 });
 </script>
 
 </body>
 </html>
+
