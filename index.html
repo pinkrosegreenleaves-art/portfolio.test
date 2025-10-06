@@ -5,15 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shrina Khare | Portfolio</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Malgun+Gothic:wght@300&display=swap');
+/* Use system font stack with Malgun Gothic preference (Malgun is a Windows/system font).
+   Removed any broken Google Font import — this avoids rendering issues. */
+body, button, input, textarea, select { font-family: "Malgun Gothic Semilight", "Malgun Gothic", "MalgunGothic", "Century Gothic", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; }
 
 /* BASE STYLES */
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Malgun Gothic', sans-serif;
   background-color: #000;
-  color: #fff;
+  color: #fff; /* explicit white text to guarantee contrast */
   line-height: 1.8;
   padding: 0 20px;
   text-align: center;
@@ -28,11 +29,11 @@ section::before {
   z-index:0;
   transform: translateZ(0);
 }
-h1,h2,h3 { margin-bottom: 20px; position: relative; z-index:1; }
+h1,h2,h3 { margin-bottom: 20px; position: relative; z-index:1; color: #fff; }
 h1 { font-size: 3rem; font-weight: 700; }
 h2 { font-size: 2rem; font-weight: 600; margin-bottom: 30px; border-bottom: 1px solid #fff; padding-bottom: 10px; display: inline-block; }
-h3 { font-size: 1.8rem; margin-bottom: 15px; font-weight: 600; }
-p { max-width: 900px; margin: 0 auto 15px; transition: all 0.3s ease; }
+h3 { font-size: 1.8rem; margin-bottom: 15px; font-weight: 600; color: #fff; }
+p { max-width: 900px; margin: 0 auto 15px; transition: all 0.3s ease; color: #fff; }
 p:hover { color: #ccc; cursor: default; }
 
 /* FADE-IN / OUT */
@@ -50,23 +51,36 @@ p:hover { color: #ccc; cursor: default; }
   width: 80%;
   text-align: center;
   position: relative;
+  color: #fff;
 }
 .card:hover { transform: translateY(-5px); background-color: #1a1a1a; }
-.card h3 { margin-bottom: 15px; font-size: 2rem; }
-.card p { margin-bottom: 0; font-size: 1.1rem; }
-.details { text-align: left; margin-top: 15px; }
-.details > .sub-card { background: #222; margin: 10px 0; padding: 12px 15px; cursor: pointer; border-left: 2px solid #fff; transition: background 0.2s ease; }
+.card h3 { margin-bottom: 15px; font-size: 2rem; color: #fff; }
+.card p { margin-bottom: 0; font-size: 1.1rem; color: #fff; }
+
+/* Hide details by default; show when main card has .active */
+.details { text-align: left; margin-top: 15px; display: none; }
+.card.active .details { display: block; }
+
+.details > .sub-card { background: #222; margin: 10px 0; padding: 12px 15px; cursor: pointer; border-left: 2px solid #fff; transition: background 0.2s ease; color: #fff; }
 .details > .sub-card:hover { background: #333; }
-.details > .sub-card p, .details > .sub-card ul { display: none; margin-top: 10px; }
+.details > .sub-card p, .details > .sub-card ul { display: none; margin-top: 10px; color: #fff; }
 .details > .sub-card.active p, .details > .sub-card.active ul { display: block; }
 
 /* SKILLS */
 .skills { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 15px; }
-.skill { border: 1px solid #fff; padding: 6px 14px; font-size: 1rem; border-radius: 3px; transition: all 0.3s ease; }
+.skill { border: 1px solid #fff; padding: 6px 14px; font-size: 1rem; border-radius: 3px; transition: all 0.3s ease; color: #fff; background: transparent; }
 .skill:hover { background: #fff; color: #000; }
 
 /* CONTACT */
-.contact p { font-size: 1.1rem; margin-bottom: 10px; }
+.contact p { font-size: 1.1rem; margin-bottom: 10px; color: #fff; }
+
+/* small responsive tweak */
+@media (max-width: 720px) {
+  .card { width: 96%; padding: 20px; }
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 1.6rem; }
+  h3 { font-size: 1.3rem; }
+}
 </style>
 </head>
 <body>
@@ -91,7 +105,7 @@ p:hover { color: #ccc; cursor: default; }
   <p>On track for 2:1, aiming for First Class Honours</p>
   <p>Contact: University of York, Heslington, YO10 5DD, United Kingdom</p>
   <p>Relevant Modules:</p>
-  <ul style="display:inline-block; text-align:left; margin-top:10px;">
+  <ul style="display:inline-block; text-align:left; margin-top:10px; color: #fff;">
     <li>Business Economics</li>
     <li>Finance Fundamentals</li>
     <li>Introduction to Accounting</li>
@@ -122,6 +136,7 @@ p:hover { color: #ccc; cursor: default; }
         <div class="sub-card"><strong>Skills Gained</strong><ul><li>Project Management</li><li>Team Leadership</li><li>UI/UX Design</li><li>Stakeholder Coordination</li><li>Entrepreneurship</li></ul></div>
       </div>
     </div>
+
     <!-- Maya Super Speciality Hospital -->
     <div class="card fade-in" style="--delay:0.1s">
       <h3>Maya Super Speciality Hospital | Maharashtra, India</h3>
@@ -133,6 +148,7 @@ p:hover { color: #ccc; cursor: default; }
         <div class="sub-card"><strong>Skills Gained</strong><ul><li>Operational Planning</li><li>Analytical Thinking</li><li>Strategic Planning</li><li>Process Optimisation</li></ul></div>
       </div>
     </div>
+
     <!-- Aakar Cancer Society -->
     <div class="card fade-in" style="--delay:0.2s">
       <h3>Aakar Cancer Society | India</h3>
@@ -144,6 +160,7 @@ p:hover { color: #ccc; cursor: default; }
         <div class="sub-card"><strong>Skills Gained</strong><ul><li>Project Coordination</li><li>Team Collaboration</li><li>Stakeholder Engagement</li></ul></div>
       </div>
     </div>
+
     <!-- Radio Vishwaas -->
     <div class="card fade-in" style="--delay:0.3s">
       <h3>Radio Vishwaas | Maharashtra, India</h3>
@@ -158,9 +175,9 @@ p:hover { color: #ccc; cursor: default; }
   </div>
 </section>
 
-<!-- SKILLS & CERTIFICATIONS -->
+  <!-- SKILLS & CERTIFICATIONS -->
 <section id="skills" class="fade-in">
-  <h2>Skills & Certifications</h2>
+  <h2>Skills & Certifications (In Progress)</h2>
 
   <h3>Hard Skills</h3>
   <div class="skills">
@@ -190,8 +207,8 @@ p:hover { color: #ccc; cursor: default; }
 
   <h3>Professional Qualifications (Targeting)</h3>
   <div class="skills">
-    <div class="skill">ACAMS – Association of Certified Anti-Money Laundering Specialists</div>
-    <div class="skill">ICA – Certificate in Financial Crime Prevention</div>
+    <div class="skill">ACAMS</div>
+    <div class="skill">ICA Financial Crime Prevention</div>
   </div>
 </section>
 
@@ -239,7 +256,7 @@ p:hover { color: #ccc; cursor: default; }
       <p>Click to view details</p>
       <div class="details">
         <div class="sub-card"><strong>Story</strong><p>Growing up in a multilingual environment and learning new languages has been like opening doors to different worlds. Each language carries culture, nuance, and perspective. Learning and using them has been an exercise in empathy, adaptability, and connection—allowing me to engage with people and ideas beyond my immediate surroundings.</p></div>
-        <div class="sub-card"><strong>Achievements</strong><ul><li>Fluent in English, Hindi, Marathi, and Sanskrit.</li></ul></div>
+        <div class="sub-card"><strong>Languages</strong><ul><li>English, Hindi, Marathi – Native</li><li>French – A1, aiming B2/C1</li></ul></div>
         <div class="sub-card"><strong>Skills Gained</strong><ul><li>Multilingual Communication</li><li>Cultural Awareness</li><li>Adaptability</li></ul></div>
       </div>
     </div>
@@ -249,44 +266,51 @@ p:hover { color: #ccc; cursor: default; }
 
 <!-- CONTACT -->
 <section id="contact" class="fade-in">
-  <h2>Contact</h2>
+  <h2>Contact Me</h2>
   <div class="contact">
-    <p>Email: <a href="mailto:shrina.khare.career@gmail.com">shrina.khare.career@gmail.com</a></p>
+    <p>Email: shrina.khare.career@gmail.com</p>
     <p>Phone: +44 7747 213034</p>
     <p>Location: York, United Kingdom</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/shrinakhare" target="_blank">linkedin.com/in/shrinakhare</a></p>
   </div>
 </section>
 
 <script>
-// FADE-IN ON SCROLL
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = { threshold: 0.3 };
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.classList.add('visible');
-    appearOnScroll.unobserve(entry);
-  });
-}, appearOptions);
-faders.forEach(fader => appearOnScroll.observe(fader));
+  // Fade in/out on scroll (original cascading behaviour preserved)
+  const sections = document.querySelectorAll('.fade-in');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const cards = entry.target.querySelectorAll('.card');
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        cards.forEach((card, index) => {
+          setTimeout(() => card.classList.add('visible'), index * 150);
+        });
+      } else {
+        entry.target.classList.remove('visible');
+        cards.forEach(card => card.classList.remove('visible'));
+      }
+    });
+  }, { threshold: 0.2 });
+  sections.forEach(section => sectionObserver.observe(section));
 
-// CARD CLICK TO SHOW DETAILS
-document.querySelectorAll('.card').forEach(card => {
-  card.addEventListener('click', e => {
-    const target = e.currentTarget.querySelector('.details');
-    if (target) target.style.display = target.style.display === 'block' ? 'none' : 'block';
+  // Toggle main card expansion (click the main card to reveal sub-cards)
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('active');
+    });
   });
-});
 
-// SUB-CARD CLICK TO TOGGLE CONTENT
-document.querySelectorAll('.sub-card').forEach(sub => {
-  sub.addEventListener('click', e => {
-    e.stopPropagation();
-    sub.classList.toggle('active');
+  // Toggle sub-card expansion (click a sub-card to reveal its content)
+  const subCards = document.querySelectorAll('.sub-card');
+  subCards.forEach(sub => {
+    sub.addEventListener('click', (e) => {
+      e.stopPropagation(); // prevent parent card toggling
+      sub.classList.toggle('active');
+    });
   });
-});
 </script>
+
 </body>
 </html>
 
