@@ -1,0 +1,298 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shrina Khare | Portfolio</title>
+<style>
+/* BASE STYLES */
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Book Antiqua', serif;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.8;
+  padding: 0 20px;
+  text-align: center;
+}
+a { color: inherit; text-decoration: none; }
+section { padding: 80px 0; position: relative; overflow: hidden; }
+section::before {
+  content: '';
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
+  z-index:0;
+  transform: translateZ(0);
+}
+h1,h2,h3 { margin-bottom: 20px; position: relative; z-index:1; }
+h1 { font-size: 3rem; font-weight: 700; }
+h2 { font-size: 2rem; font-weight: 600; margin-bottom: 30px; border-bottom: 1px solid #fff; padding-bottom: 10px; display: inline-block; }
+h3 { font-size: 1.8rem; margin-bottom: 15px; font-weight: 600; }
+p { max-width: 900px; margin: 0 auto 15px; transition: all 0.3s ease; }
+p:hover { color: #ccc; cursor: default; }
+
+/* FADE-IN / OUT */
+.fade-in { 
+  opacity: 0; 
+  transform: translateY(50px); 
+  transition: all 0.8s ease-out; 
+}
+.fade-in.visible { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition-delay: var(--delay);
+}
+
+/* CARDS */
+.card-container { display: flex; flex-direction: column; gap: 30px; align-items: center; position: relative; z-index:1; }
+.card {
+  background-color: #111;
+  border-left: 3px solid #fff;
+  padding: 30px 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 80%;
+  text-align: center;
+  position: relative;
+}
+.card:hover { transform: translateY(-5px); background-color: #1a1a1a; }
+.card h3 { margin-bottom: 15px; font-size: 2rem; }
+.card p { margin-bottom: 0; font-size: 1.1rem; }
+.details { text-align: left; margin-top: 15px; }
+.details > .sub-card { background: #222; margin: 10px 0; padding: 12px 15px; cursor: pointer; border-left: 2px solid #fff; transition: background 0.2s ease; }
+.details > .sub-card:hover { background: #333; }
+.details > .sub-card p, .details > .sub-card ul { display: none; margin-top: 10px; }
+.details > .sub-card.active p, .details > .sub-card.active ul { display: block; }
+
+/* SKILLS */
+.skills { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 15px; }
+.skill { border: 1px solid #fff; padding: 6px 14px; font-size: 1rem; border-radius: 3px; }
+
+/* CONTACT */
+.contact p { font-size: 1.1rem; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section id="hero" class="fade-in">
+  <h1>Shrina Khare</h1>
+  <p>Analytical, strategic, and driven. Bridging finance, management, and operational excellence with creativity and precision. Dedicated to delivering impactful results and optimising processes in every environment I step into.</p>
+</section>
+
+<!-- ABOUT ME -->
+<section id="about" class="fade-in">
+  <h2>About Me</h2>
+  <p>Working with me is seamless, efficient, and collaborative. I lead projects with clarity, structure, and foresight, ensuring stakeholders are aligned and milestones are met. My approach combines meticulous analysis with creativity, making complex challenges simple and actionable.</p>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="fade-in">
+  <h2>Education</h2>
+  <p><strong>University of York | York, United Kingdom</strong></p>
+  <p>BSc Accounting, Business Finance and Management (with Year in Industry) - Expected: June 2028</p>
+  <p>On track for 2:1, aiming for First Class Honours</p>
+  <p>Contact: University of York, Heslington, YO10 5DD, United Kingdom</p>
+  <p>Relevant Modules:</p>
+  <ul style="display:inline-block; text-align:left; margin-top:10px;">
+    <li>Business Economics</li>
+    <li>Finance Fundamentals</li>
+    <li>Introduction to Accounting</li>
+    <li>Introduction to Business Ethics & Sustainability</li>
+    <li>People, Management and Professional Development</li>
+    <li>Quantitative Analysis in Management</li>
+    <li>Business Planning & Sustainable Entrepreneurship</li>
+    <li>Corporate Finance</li>
+    <li>Financial Reporting</li>
+    <li>Intermediate Management Accounting</li>
+    <li>Management Information Systems</li>
+    <li>Strategic Management</li>
+  </ul>
+</section>
+
+<!-- WORK EXPERIENCE -->
+<section id="experience" class="fade-in">
+  <h2>Work Experience</h2>
+  <div class="card-container">
+
+    <!-- Student Productivity App -->
+    <div class="card fade-in" style="--delay:0s">
+      <h3>Student Productivity App | London, UK</h3>
+      <p><strong>Project Lead | Jul–Dec 2024</strong></p>
+      <p>Click to view details</p>
+      <div class="details">
+        <div class="sub-card"><p><strong>Story:</strong> This was my brainchild—an idea I was determined to bring to life. I saw a gap in how students manage their time and wanted to create a solution that was both practical and elegant. Leading a team of student developers, I balanced creativity with structure, designing the UI/UX and shaping the product vision while keeping everyone aligned. It felt like running a mini start-up, where every decision mattered. I loved the thrill of seeing abstract ideas turn into something tangible—a functional app that reflected both my entrepreneurial drive and my eye for design.</p></div>
+        <div class="sub-card"><ul><li>Directed a 6-month project designing and building a student productivity app with student developers.</li><li>Owned product design and front-end strategy using Figma.</li><li>Structured workstreams, monitored milestones, mitigated risks, delivered functional prototype.</li></ul></div>
+        <div class="sub-card"><ul><li>Project Management</li><li>Team Leadership</li><li>UI/UX Design</li><li>Stakeholder Coordination</li><li>Entrepreneurship</li></ul></div>
+      </div>
+    </div>
+
+    <!-- Maya Super Speciality Hospital -->
+    <div class="card fade-in" style="--delay:0.1s">
+      <h3>Maya Super Speciality Hospital | Maharashtra, India</h3>
+      <p><strong>Operations Assistant (Part-time, Eyewear Division) | Sep 2020–Jun 2023</strong></p>
+      <p>Click to view details</p>
+      <div class="details">
+        <div class="sub-card"><p><strong>Story:</strong> This role was my introduction to real-world business. Strategy and execution collided every day—I’d plan initiatives, see how they worked on the ground, and adapt in real time. Coordinating between teams, solving unexpected problems, and keeping operations smooth taught me how businesses function behind the scenes. It was fast-paced, challenging, and deeply satisfying, giving me a perspective that no classroom could offer.</p></div>
+        <div class="sub-card"><ul><li>Managed daily operations, improved inventory accuracy by 15%.</li><li>Enhanced customer engagement, increasing repurchase rates by 18%.</li><li>Facilitated relocation & expansion, leading to 10% sales increase.</li><li>Developed strategies achieving 12% year-on-year revenue growth.</li></ul></div>
+        <div class="sub-card"><ul><li>Operational Planning</li><li>Analytical Thinking</li><li>Strategic Planning</li><li>Process Optimisation</li></ul></div>
+      </div>
+    </div>
+
+    <!-- Aakar Cancer Society -->
+    <div class="card fade-in" style="--delay:0.2s">
+      <h3>Aakar Cancer Society | India</h3>
+      <p><strong>Volunteer Health Outreach Coordinator | Jan 2020–Dec 2021</strong></p>
+      <p>Click to view details</p>
+      <div class="details">
+        <div class="sub-card"><p><strong>Story:</strong> Leading health camps in rural and tribal areas was profoundly meaningful. Every day was about collaboration—aligning with doctors, volunteers, and communities to make healthcare accessible. I learned how leadership isn’t just about giving instructions, but inspiring trust and working alongside others. Witnessing the impact on patients’ lives left a lasting impression and gave purpose to every challenge we faced.</p></div>
+        <div class="sub-card"><ul><li>Planned and coordinated health camps for 10,000+ patients in rural & tribal areas.</li><li>Operated free health check-ups supporting low-income individuals.</li><li>Collaborated with medical professionals for comprehensive patient care.</li></ul></div>
+        <div class="sub-card"><ul><li>Project Coordination</li><li>Team Collaboration</li><li>Stakeholder Engagement</li></ul></div>
+      </div>
+    </div>
+
+    <!-- Radio Vishwaas -->
+    <div class="card fade-in" style="--delay:0.3s">
+      <h3>Radio Vishwaas | Maharashtra, India</h3>
+      <p><strong>Radio Jockey & Audio Engineer | Jun 2018–Feb 2020</strong></p>
+      <p>Click to view details</p>
+      <div class="details">
+        <div class="sub-card"><p><strong>Story:</strong> Being a radio jockey and audio engineer was a rare blend of creativity and technical skill. I hosted live shows, curated content, and learned the intricacies of sound engineering—mixing, mastering, and producing every broadcast. The excitement of connecting with an audience in real time, experimenting with sound, and translating ideas into experience was unmatched. It sharpened my communication, creativity, and gave me first-hand technical expertise I still value today.</p></div>
+        <div class="sub-card"><ul><li>Produced and hosted a live poetry show, engaging listeners creatively and technically.</li><li>Managed audio production end-to-end using Adobe Audition, including mixing, mastering, and sound design.</li><li>Implemented technical workflow optimisations for broadcasting efficiency.</li></ul></div>
+        <div class="sub-card"><ul><li>Audio Engineering</li><li>Live Production & Broadcasting</li><li>Creative & Technical Execution</li></ul></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS & CERTIFICATIONS -->
+<section id="skills" class="fade-in">
+  <h2>Skills & Certifications (In Progress)</h2>
+
+  <h3>Hard Skills</h3>
+  <div class="skills">
+    <div class="skill">Microsoft Excel (MOS)</div>
+    <div class="skill">PowerPoint</div>
+    <div class="skill">SQL</div>
+    <div class="skill">Power BI</div>
+    <div class="skill">Google Data Analytics</div>
+    <div class="skill">Figma / UI/UX Design</div>
+    <div class="skill">Python</div>
+    <div class="skill">Adobe Audition / Audio Engineering</div>
+    <div class="skill">Vibe Coding</div>
+  </div>
+
+  <h3>Soft Skills</h3>
+  <div class="skills">
+    <div class="skill">Project Management</div>
+    <div class="skill">Team Leadership</div>
+    <div class="skill">Stakeholder Coordination</div>
+    <div class="skill">Operational Planning</div>
+    <div class="skill">Analytical Thinking</div>
+    <div class="skill">Communication</div>
+    <div class="skill">Attention to Detail</div>
+    <div class="skill">Adaptability</div>
+    <div class="skill">Time Management</div>
+  </div>
+
+  <h3>Professional Qualifications (Targeting)</h3>
+  <div class="skills">
+    <div class="skill">ACAMS</div>
+    <div class="skill">ICA Financial Crime Prevention</div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS & INTERESTS -->
+<section id="achievements" class="fade-in">
+  <h2>Achievements & Interests</h2>
+  <div class="card-container">
+
+    <!-- Fencing & Sports -->
+    <div class="card fade-in" style="--delay:0.1s">
+      <h3>Fencing & Sports</h3>
+      <p>Click to view details</p>
+      <div class="details">
+        <div class="sub-card"><p><strong>Story:</strong> Fencing wasn’t just a sport—it was a constant lesson in strategy, patience, and self-mastery. Every bout demanded focus, anticipation, and adaptability. Leading the team, competing, and striving for excellence taught me the quiet strength that comes from discipline, perseverance, and the relentless pursuit of improvement.</p></div>
+        <div class="sub-card"><ul><li>National Silver Medallist in Fencing, Captain of Fencing Team.</li><li>Accolades in Boxing and Shooting.</li></ul></div>
+        <div class="sub-card"><ul><li>Dedication</li><li>Determination</li><li>Resilience</li><li>Discipline & Strategic Thinking</li></ul></div>
+      </div>
+    </div>
+
+    <!-- Bharatanatyam -->
+    <div class="card fade-in" style="--delay:0.2s">
+      <h3>Bharatanatyam</h3>
+      <p>Click to view details</p>
+      <div class="details">
+        <div class="sub-card"><p><strong>Story:</strong> Bharatanatyam has been a journey of self-expression and discovery. Learning its intricate rhythms and movements taught me discipline, precision, and grace. Teaching and performing brought moments of vulnerability and connection, where each gesture and expression communicated more than words ever could. It shaped how I approach challenges—with patience, creativity, and an appreciation for nuanced execution.</p></div>
+        <div class="sub-card"><ul><li>Studied, performed, and taught Bharatanatyam over four years.</li></ul></div>
+        <div class="sub-card"><ul><li>Discipline</li><li>Creativity</li><li>Patience</li><li>Expressive Communication</li><li>Leadership & Teaching</li></ul></div>
+      </div>
+    </div>
+
+    <!-- Musical Instruments -->
+    <div class="card fade-in" style="--delay:0.3s">
+      <h3>Musical Instruments</h3>
+      <p>Click to view details</p>
+      <div class="details">
+        <div class="sub-card"><p><strong>Story:</strong> Learning music independently was a journey of curiosity, trial, and persistence. I explored sounds, compositions, and rhythms, often facing frustration but learning to push through. The process taught me patience, self-discipline, and the joy of creation. Music became a mirror for my growth—a practice in focus, creativity, and personal expression.</p></div>
+        <div class="sub-card"><ul><li>Self-taught Guitar, Ukulele, and Piano.</li></ul></div>
+        <div class="sub-card"><ul><li>Self-discipline</li><li>Creativity</li><li>Coordination & Focus</li></ul></div>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="card fade-in" style="--delay:0.4s">
+      <h3>Languages</h3>
+      <p>Click to view details</p>
+      <div class="details">
+        <div class="sub-card"><p><strong>Story:</strong> Growing up in a multilingual environment and learning new languages has been like opening doors to different worlds. Each language carries culture, nuance, and perspective. Learning and using them has been an exercise in empathy, adaptability, and connection—allowing me to engage with people and ideas beyond my immediate surroundings.</p></div>
+        <div class="sub-card"><ul><li>English, Hindi, Marathi – Native</li><li>French – A1, aiming B2/C1</li></ul></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade-in">
+  <h2>Contact</h2>
+  <div class="contact">
+    <p>Email: shrinak@portfolio.com</p>
+    <p>Phone: +44 7747 213034</p>
+  </div>
+</section>
+
+<script>
+// Fade in/out cascading sections and cards
+const sections = document.querySelectorAll('.fade-in');
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const cards = entry.target.querySelectorAll('.card');
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      cards.forEach((card, index) => {
+        setTimeout(() => card.classList.add('visible'), index * 150);
+      });
+    } else {
+      entry.target.classList.remove('visible');
+      cards.forEach(card => card.classList.remove('visible'));
+    }
+  });
+}, { threshold: 0.2 });
+
+sections.forEach(section => sectionObserver.observe(section));
+
+// Toggle sub-card details
+document.querySelectorAll('.sub-card').forEach(subCard => {
+  subCard.addEventListener('click', () => {
+    subCard.classList.toggle('active');
+  });
+});
+</script>
+
+</body>
+</html>
